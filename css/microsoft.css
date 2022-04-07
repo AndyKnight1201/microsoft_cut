@@ -1,0 +1,310 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Segoe UI','Microsoft JhengHei','微軟正黑體',"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: black;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    
+}
+h1, h2, h3, h4, h5, h6, ol, p, ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+li , ul{
+    padding: 0%;
+    list-style-type:none;
+}
+.container{
+    padding: 0 5%;
+}
+
+/* 頂端項目條 */
+
+.title{
+    height:60px;
+    background-color: rgb(255, 255, 255);
+    padding: 0 5px;
+    display: flex;
+    align-items: center;
+    
+}
+.logo{
+    width: 135px;
+    height: 50px;
+    background-image: url('../image/ICON.png');
+    background-size: 79%;
+    background-position: 10%,50%;
+    background-repeat: no-repeat;
+}
+.options-left{
+    min-width: 60%;
+}
+
+.options-right{
+    margin-left: auto;
+    
+}
+
+.options-left a,.options-right a,.options-right button{
+    text-decoration:none;
+    padding: 16px 10px;
+    border: 0;
+    background-color: white;
+    cursor: pointer;
+}
+
+.options-left a:hover,.options-right a:hover,.options-right button:hover{
+    text-decoration:underline 3px;
+}
+
+.options-right span ,.options-left a{
+    font-size: 13px;
+    font-weight: 400;
+    color: #262626;
+}
+
+.Microsoft-button >span::after{
+    content: "\2228";
+    font-family: "MWF-MDL2";
+    /* 利用position: absolute浮起 */
+    position: absolute;
+    font-size: 8px;
+    display: inline-block;
+    color: currentColor;
+    font-weight: 700;
+    padding-top: 7px;
+}
+
+/*-------- 當Microsoft-button按下去後--------- */
+.Microsoft-button:active ~.button-area{
+    display: flex;   
+}
+.Microsoft-button:active{
+    background-color: #F2F2F2;
+}
+
+.button-area{
+display: none;
+position: absolute;
+right: 1%;
+}
+
+.button-list{
+    width: 1230px;
+    background-color: #F2F2F2;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid rgba(0,0,0,.05);
+    border-bottom: 2px solid black;
+}
+.button-list a{
+    background-color:unset;
+    font-size: 13px;
+    padding: 0;
+}
+.button-list ul{
+    width: 200px;
+    padding:18px 0px 10px 24px;
+    display: inline-block;
+}
+
+.button-list li,.button-list h5{
+    padding: 12px 0;
+}
+
+.map{
+    width: 100%;
+    background-color: #E6E6E6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.map a{
+    padding: 10px 24px;
+    }
+    
+
+.search-icon{
+    transform: translate(3px,3px);
+}
+.shopping-icon{
+    transform: translate(3px,2px);
+}
+.user-icon{
+    transform: translate(10px,12px);
+}
+    
+
+
+
+
+
+/* 第一群包含圖片和三個LINK小圖選項  */
+
+
+.main-link-inner{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-top: 70px;
+    
+
+}
+.nav-link{
+    width: 180px;
+    text-decoration:none;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.short-text{
+    padding:0 20px;
+}
+
+.list-area{
+    display: flex;
+  
+}
+
+.list{
+    width: 24%;
+    padding-top: 60px;
+}
+
+.list:not(:last-child){
+    margin-right: 24px;
+}
+
+.list p{
+   text-align: justify;
+   font-weight: 400;
+   font-size: 15px;
+   min-width: 310px;
+   color: #000;
+   padding-right: 12px;
+}
+
+.list h3{
+    font-size: 20px;
+    padding: 33px 12px 3px 0;
+    color: #000;
+    font-weight: 600;
+}
+.list div{
+    padding-top: 10px;
+    
+}
+
+.list span{
+    color: #0067b8;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+/* 第二群包含圖片和選項  */
+.nav-box:nth-child(4){
+    padding-top: 48px;
+    
+}
+.title-heading{
+    padding-top: 48px;
+}
+.area2-heading{
+    font-size: 24px;
+    line-height: 28px;
+    padding:0px 0 4px;
+    font-weight: 600;
+}
+
+.list-area:nth-child(5) .list{
+    padding-top: 15px;
+}
+
+/* 關注連結 */
+
+.focus-box{
+    display: flex;
+    align-items: center;
+    padding: 48px 0;
+}
+
+.focus-box > *{
+    padding-right: 14px;
+    display: flex;
+    align-items: center;
+}
+
+/* 連結清單選項 */
+.bot-options{
+    background-color: #f2f2f2;
+    display: flex;
+    padding:0px 5%;
+    color: #616161;
+    
+    
+}
+
+.bot-options a{
+    text-decoration: none;
+    font-size: 12px;
+    color: #616161;
+}
+
+.bot-options >div{
+    width: 16.6%;
+    padding-right: 12px;
+}
+
+.bot-options li{
+    text-decoration: none;
+    line-height:15px;
+    padding: 8px 0;
+    
+}
+.bot-title{
+    font-weight: 600;
+    padding-top: 36px;
+    padding-bottom: 4px;
+    font-size: 15px;
+    color: #616161;
+}
+
+
+.button{
+    display:inline-block;
+    width: 100%;
+    padding: 30px 5% 16px;
+    background-color: #f2f2f2;
+       
+}
+.button >a{
+    float: left;
+}
+.button >ul{
+    float: right;
+}
+
+.button li{
+    float: left;
+    padding-right: 27px;
+    padding-bottom: 4px;
+    font-size: 12px;
+}
+
+.button a{
+    text-decoration: none;
+    font-size: 12px;
+    color: #616161;
+}
+
+
+
+
+
+
+
+

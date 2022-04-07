@@ -1,0 +1,426 @@
+
+*{
+    box-sizing: border-box;
+    font-family: 'Segoe UI','Microsoft JhengHei','微軟正黑體',"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: black;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    
+}
+h1, h2, h3, h4, h5, h6, ol, p, ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+li , ul{
+    padding: 0%;
+    list-style-type:none;
+}
+.container{
+    padding: 0 5%;
+}
+
+/* 頂端項目條 */
+
+.title{
+    height:54px;
+    background-color: rgb(255, 255, 255);
+    padding: 0 5px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    
+}
+.logo{
+    width: 135px;
+    height: 50px;
+    background-image: url('../image/ICON.png');
+    background-size: 79%;
+    background-position: 10%,50%;
+    background-repeat: no-repeat;
+}
+.options-left{
+    flex-grow: 1;
+}
+
+.options-right{
+    margin-left: auto;
+    /* position: relative; */
+    
+}
+
+/* .options-left a,.options-right a,.options-right button{
+    text-decoration:none;
+    background-color: white;
+    border: 0;
+    padding: 16px 10px;
+    cursor: pointer;
+} */
+
+.options-left >a,.options-right >a,.options-right >button{
+    text-decoration:none;
+    padding: 16px 10px;
+    border: 0;
+    background-color: white;
+    cursor: pointer;
+}
+
+.options-left a:hover,.options-right a:hover,.options-right button:hover{
+    text-decoration:underline 3px;
+}
+
+.options-right span ,.options-left a{
+    font-size: 13px;
+    font-weight: 400;
+    color: #262626;
+}
+
+.Microsoft-button >span::after{
+    content: "\2228";
+    font-family: "MWF-MDL2";
+    /* 利用position: absolute浮起 */
+    position: absolute;
+    font-size: 8px;
+    display: inline-block;
+    color: currentColor;
+    font-weight: 700;
+    padding-top: 7px;
+}
+
+/*目前能想到的仿開關選單解法，button特性能被focus定住*/
+/*當Microsoft-button按下去後button-area和.button-close打開 */
+/* button-close為隱形的關閉區塊，開啟後覆蓋在開關上 */
+.button-close{
+   position: absolute; 
+   display: none;
+   top: 0;
+   transform: translate(0%,6%);
+   cursor: pointer;
+}
+
+.Microsoft-button:focus ~.button-area{
+    display: flex;   
+}
+.Microsoft-button:focus{
+    background-color: #F2F2F2;
+}
+
+.Microsoft-button:focus ~.button-close{
+    display: block;
+    width: 104.14px;
+    height: 49.96px;
+    /* background-color: rgb(163, 42, 42); */
+}
+
+/*當.button-close按下去後再把button-area關閉*/
+/* 雖然不設定這個直接按button-close區塊就能取消focus的button-area顯示
+但是還是多一層保險比較好。 */
+.button-close:active ~.button-area{
+    display: none; 
+}
+
+
+.button-area{
+    display: none;
+    position: absolute;
+    right: -4.5%;
+    top: 50px;
+    animation: appear .3s cubic-bezier(.68,-.55,.265,1.55);
+}
+/* 讓button-area緩現，因為display變化不能用
+transition故選擇animation*/
+@keyframes appear{
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
+
+.button-list{
+    width: 1230px;
+    background-color: #F2F2F2;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid rgba(0,0,0,.05);
+    border-bottom: 2px solid black;
+}
+.button-list a{
+    background-color:unset;
+    font-size: 13px;
+    padding: 0;
+}
+.button-list ul{
+    width: 200px;
+    padding:18px 0px 10px 24px;
+    display: inline-block;
+}
+
+.button-list li,.button-list h5{
+    padding: 12px 0;
+}
+
+.map{
+    width: 100%;
+    background-color: #E6E6E6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.map a{
+    padding: 10px 24px;
+    }
+
+/* 搜尋區 */
+.search-area{
+    width: calc(100% - 135px);
+    position: absolute;
+    right: 0%;
+    top: 0;
+    z-index: 1;
+}
+
+.search-area-inner{
+    width: 100%;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    background-color: rgb(255, 162, 162);
+    padding-left: 2.2%;
+    position: relative;
+}  
+
+
+.search-box:focus ~ .search-area-inner{
+display: flex
+}
+/* .search-box:focus ~ .cancel-search{
+display: block;
+} */
+
+.input{
+    width: 89.5%;
+    padding: 9px 38px 9px 10px;
+    margin-top: 10px;
+    border: 1px solid rgba(0,0,0,.6);
+    border-radius: 0;
+}
+.input:focus{
+    outline: 2px solid transparent;
+    outline-color: black;
+}
+
+.search-icon2{
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    transform: translate(0%,0%);
+    width: 33px;
+    height: 33px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration:none;
+    background-color: white;
+    border: 0;
+}
+
+.options-right .cancel-search{
+    /* display:block; */
+    position: absolute;
+    transform: translate(60%,15%);
+    height: 36px;
+    width: 75px;
+    margin-left: 5px;
+    margin-top: 6px;
+    padding: 6px;
+    text-decoration:none;
+    background-color: white;
+    border: 0;
+    z-index: 2;
+}
+.options-right .cancel:focus ~ .search-area-inner{
+    display: none;
+}
+
+
+.search-icon{
+    transform: translate(3px,3px);
+}
+.shopping-icon{
+    transform: translate(3px,2px);
+}
+.user-icon{
+    transform: translate(10px,12px);
+}
+    
+
+
+
+
+
+/* 第一群包含圖片和三個LINK小圖選項  */
+
+
+.main-link-inner{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-top: 70px;
+    
+
+}
+.nav-link{
+    width: 180px;
+    text-decoration:none;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.short-text{
+    padding:0 20px;
+}
+
+.list-area{
+    display: flex;
+  
+}
+
+.list{
+    width: 24%;
+    padding-top: 60px;
+}
+
+.list:not(:last-child){
+    margin-right: 24px;
+}
+
+.list p{
+   text-align: justify;
+   font-weight: 400;
+   font-size: 15px;
+   min-width: 310px;
+   color: #000;
+   padding-right: 12px;
+}
+
+.list h3{
+    font-size: 20px;
+    padding: 33px 12px 3px 0;
+    color: #000;
+    font-weight: 600;
+}
+.list div{
+    padding-top: 10px;
+    
+}
+
+.list span{
+    color: #0067b8;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+/* 第二群包含圖片和選項  */
+.nav-box:nth-child(4){
+    padding-top: 48px;
+    
+}
+.title-heading{
+    padding-top: 48px;
+}
+.area2-heading{
+    font-size: 24px;
+    line-height: 28px;
+    padding:0px 0 4px;
+    font-weight: 600;
+}
+
+.list-area:nth-child(5) .list{
+    padding-top: 15px;
+}
+
+/* 關注連結 */
+
+.focus-box{
+    display: flex;
+    align-items: center;
+    padding: 48px 0;
+}
+
+.focus-box > *{
+    padding-right: 14px;
+    display: flex;
+    align-items: center;
+}
+
+/* 連結清單選項 */
+.bot-options{
+    background-color: #f2f2f2;
+    display: flex;
+    padding:0px 5%;
+    color: #616161;
+    
+    
+}
+
+.bot-options a{
+    text-decoration: none;
+    font-size: 12px;
+    color: #616161;
+}
+
+.bot-options >div{
+    width: 16.6%;
+    padding-right: 12px;
+}
+
+.bot-options li{
+    text-decoration: none;
+    line-height:15px;
+    padding: 8px 0;
+    
+}
+.bot-title{
+    font-weight: 600;
+    padding-top: 36px;
+    padding-bottom: 4px;
+    font-size: 15px;
+    color: #616161;
+}
+
+
+.button{
+    display:inline-block;
+    width: 100%;
+    padding: 30px 5% 16px;
+    background-color: #f2f2f2;
+       
+}
+.button >a{
+    float: left;
+}
+.button >ul{
+    float: right;
+}
+
+.button li{
+    float: left;
+    padding-right: 27px;
+    padding-bottom: 4px;
+    font-size: 12px;
+}
+
+.button a{
+    text-decoration: none;
+    font-size: 12px;
+    color: #616161;
+}
+
+
+
+
+
+
+
+
